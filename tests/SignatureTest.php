@@ -1,10 +1,11 @@
 <?php
 namespace Upyun\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Upyun\Signature;
 use Upyun\Config;
 
-class SignatureTest extends \PHPUnit_Framework_TestCase
+class SignatureTest extends TestCase
 {
 
     /**
@@ -12,13 +13,9 @@ class SignatureTest extends \PHPUnit_Framework_TestCase
      */
     public $config;
 
-    public function setUp()
-    {
-        $this->config = new Config('bucket', 'operator', 'password');
-    }
-
     public function testGetBodySignature()
     {
+        $this->config = new Config('bucket', 'operator', 'password');
         $sign = Signature::getBodySignature($this->config, 'POST', '/bucket');
         $this->assertEquals($sign, 'UPYUN operator:Xx3G6+DAvUyCL2Y2npSW/giTFI8=');
     }

@@ -9,7 +9,7 @@ define('PIC_SIZE', filesize(PIC_PATH));
 
 function getFileUrl($path)
 {
-    return "http://" . BUCKET . ".b0.upaiyun.com/" . ltrim($path, '/');
+    return "http://" . BUCKET . ".test.upcdn.net/" . ltrim($path, '/');
 }
 
 function getUpyunFileSize($path)
