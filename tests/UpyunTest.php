@@ -1,10 +1,11 @@
 <?php
 namespace Upyun\Tests;
 
+use PHPUnit\Framework\TestCase;
 use Upyun\Config;
 use Upyun\Upyun;
 
-class UpyunTest extends \PHPUnit_Framework_TestCase
+class UpyunTest extends TestCase
 {
 
     /**
@@ -17,8 +18,15 @@ class UpyunTest extends \PHPUnit_Framework_TestCase
 
     protected static $tempFilePath;
 
-    public static function setUpBeforeClass()
+    // public function __construct($name = null, array $data = [], $dataName = '')
+    // {
+    //     parent::__construct($name, $data, $dataName);
+    // }
+
+    public function __construct()
     {
+
+        parent::__construct();
         $config = new Config(BUCKET, USER_NAME, PWD);
         $config->setFormApiKey('Mv83tlocuzkmfKKUFbz2s04FzTw=');
         $config->processNotifyUrl = 'http://localhost:9999';
@@ -27,10 +35,22 @@ class UpyunTest extends \PHPUnit_Framework_TestCase
         touch(self::$tempFilePath);
     }
 
-    public static function tearDownAfterClass()
-    {
-        unlink(self::$tempFilePath);
-    }
+    // public static function setUpBeforeClass()
+    // {
+    //     $config = new Config(BUCKET, USER_NAME, PWD);
+    //     $config->setFormApiKey('Mv83tlocuzkmfKKUFbz2s04FzTw=');
+    //     $config->processNotifyUrl = 'http://localhost:9999';
+    //     self::$upyun        = new Upyun($config);
+    //     self::$tempFilePath = __DIR__ . '/assets/test.txt';
+    //     touch(self::$tempFilePath);
+    // }
+    //
+    // public static function tearDownAfterClass()
+    // {
+    //     unlink(self::$tempFilePath);
+    // }
+
+
 
     public function testWriteString()
     {
