@@ -4,7 +4,7 @@
     "keywords": ["UPYUN", "sdk"],
     "type": "library",
     "minimum-stability": "stable",
-    "homepage": "https://github.com/upyun/php-sdk/",
+    "homepage": "https://github.com/hezhizheng/upyun-php-sdk",
     "license": "MIT",
     "require": {
         "php": ">=7.3",
@@ -22,6 +22,10 @@
         "psr-4": { "Upyun\\Tests\\": "tests/" }
     },
     "authors": [
+        {
+            "name": "DexterHo(Hezhizheng)",
+            "email": "dexter.ho.cn@gmail.com"
+        },
         {
             "name": "lfeng",
             "email": "bonevv@gmail.com"
