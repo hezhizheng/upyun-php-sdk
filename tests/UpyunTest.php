@@ -61,15 +61,22 @@ class UpyunTest extends TestCase
         $this->assertEquals($size, strlen($content));
     }
 
+    /**
+     * Description: ./vendor/bin/phpunit --filter=testWriteStream
+     * Author: hzz
+     * @return void
+     * @throws \Exception
+     */
     public function testWriteStream()
     {
-        $filename = 'test.jpeg';
+        $filename = 'test'.time().'.jpeg';
         $f = fopen(__DIR__ . '/assets/sample.jpeg', 'rb');
         if (!$f) {
             throw new \Exception('open test file failed!');
         }
         self::$upyun->write($filename, $f);
         $size = getUpyunFileSize($filename);
+        var_dump(getFileUrl($filename));
         $this->assertEquals($size, PIC_SIZE);
     }
 
